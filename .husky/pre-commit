@@ -1,0 +1,10 @@
+
+#!/bin/sh
+
+. "$(dirname "$0")/_/husky.sh"
+
+. "$(dirname "$0")/helpers/lint_staged.sh"
+
+
+lint_staged_files
+

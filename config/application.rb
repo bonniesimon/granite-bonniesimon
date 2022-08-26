@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "boot"
 
 require "rails/all"
@@ -15,7 +17,6 @@ module Granite
 
       g.test_framework :test_unit, fixture: false
     end
-
 
     # Configuration for the application, engines, and railties goes here.
     #

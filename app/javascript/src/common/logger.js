@@ -4,5 +4,5 @@ export const initializeLogger = () => {
   Logger.useDefaults();
   if (process.env.RAILS_ENV === "production") {
     Logger.setLevel(Logger.OFF);
-  }  
-}
+  }
+};
