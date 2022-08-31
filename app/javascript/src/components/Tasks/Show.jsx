@@ -49,6 +49,10 @@ const Show = () => {
           onClick={updateTask}
         />
       </div>
+      <h2 className="text-md mb-3 pb-3 leading-5 text-bb-gray-600 text-opacity-50">
+        <span>Created By : </span>
+        {task?.task_owner?.name}
+      </h2>
       <h2 className="border-b mt-3 mb-3 border-gray-500 pb-3 pl-3 text-lg leading-5 text-gray-800">
         <span className="text-gray-600">Assigned To : </span>
         {task?.assigned_user.name}
