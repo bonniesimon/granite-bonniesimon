@@ -11,7 +11,6 @@ class Task < ApplicationRecord
   validate :slug_not_changed
 
   before_create :set_slug
-  before_destroy :assign_tasks_to_task_owners
 
   private
 
@@ -35,13 +34,6 @@ class Task < ApplicationRecord
     def slug_not_changed
       if slug_changed? && self.persisted?
         errors.add(:slug, t("task.slug.immutable"))
-      end
-    end
-
-    def assign_tasks_to_task_owners
-      tasks_whose_owner_is_not_current_user = assigned_tasks.select { |task| task.task_owner_id != id }
-      tasks_whose_owner_is_not_current_user.each do |task|
-        task.update(assigned_user_id: task.task_owner_id)
       end
     end
 end
