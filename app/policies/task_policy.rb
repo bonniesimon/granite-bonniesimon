@@ -22,9 +22,10 @@ class TaskPolicy
     show?
   end
 
-  # Only owner is allowed to update a task.
+  # The condition for edit policy is the same as that of the show.
+  # Hence, we can simply call `show?` inside the edit? policy here.
   def update?
-    task.task_owner_id == user.id
+    show?
   end
 
   # Every user can create a task, hence create? will always returns true.
