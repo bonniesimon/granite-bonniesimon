@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::ParameterMissing, with: :handle_api_error
   rescue_from Pundit::NotAuthorizedError, with: :handle_authorization_error
 
-  include Pundit
+  include Pundit::Authorization
 
   private
 
@@ -59,6 +59,6 @@ class ApplicationController < ActionController::Base
     end
 
     def handle_authorization_error
-      respond_with_error(t("authorization.denied", :forbidden))
+      respond_with_error(t("authorization.denied"), :forbidden)
     end
 end
