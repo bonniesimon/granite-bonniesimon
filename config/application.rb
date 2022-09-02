@@ -18,6 +18,8 @@ module Granite
       g.test_framework :test_unit, fixture: false
     end
 
+    config.active_job.queue_adapter = :sidekiq
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
