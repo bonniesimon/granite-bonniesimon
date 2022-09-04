@@ -25,6 +25,9 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     post session_path, params: { login: { email: non_existent_email, password: "welcome" } }, as: :json
     assert_response :not_found
     response_json = response.parsed_body
+    # Testing here fails because in application controller,
+    # the respond_with_error gets the message as "Couldn't find task" as default
+    # It doesn't match with :not_found which is "#{entity} not found" in acc to en.yml
     assert_equal response_json["error"], t("not_found", entity: "User")
   end
 end
