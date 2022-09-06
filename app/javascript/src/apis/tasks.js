@@ -22,6 +22,11 @@ const destroy = ({ slug, quiet }) => {
   return axios.delete(path);
 };
 
-const tasksApi = { list, create, show, update, destroy };
+const generatePdf = () => axios.post("/tasks/report", {});
+
+const download = () =>
+  axios.get("/tasks/report/download", { responseType: "blob" });
+
+const tasksApi = { list, create, show, update, destroy, generatePdf, download };
 
 export default tasksApi;
