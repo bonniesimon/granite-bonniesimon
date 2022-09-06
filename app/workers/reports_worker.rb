@@ -4,10 +4,7 @@ class ReportsWorker
   include Sidekiq::Worker
 
   def perform(user_id, report_path)
-    puts("|||||||||||||||||||||||||||||||||||||||||||||||")
     tasks = Task.accessible_to(user_id)
-    puts("|||||||||||||||||||||||||||||||||||||||||||||||")
-    p(tasks)
     content = ApplicationController.render(
       assigns: {
         tasks: tasks
