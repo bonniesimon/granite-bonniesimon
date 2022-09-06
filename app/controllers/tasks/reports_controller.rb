@@ -2,7 +2,6 @@
 
 class Tasks::ReportsController < ApplicationController
   def create
-    # p("Hey |||||||||", current_user.id, report_path)
     ReportsWorker.perform_async(current_user.id, report_path)
     respond_with_success(t("in_progress", action: "Report generation"))
   end
